@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ISA - International Standards Authority</title>
+  <title>ISA - Internet Secret Agency</title>
   <style>
     * {
       margin: 0;
@@ -14,7 +14,7 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.6;
       color: #333;
-      background-color: #f5f5f5;
+      background-color: #0f0f0f;
     }
     .container {
       max-width: 1200px;
@@ -22,13 +22,14 @@
       padding: 0 20px;
     }
     .navbar {
-      background-color: #2c3e50;
-      color: white;
+      background-color: #1a1a2e;
+      color: #00ff00;
       padding: 1rem 0;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 5px rgba(0,255,0,0.1);
       position: sticky;
       top: 0;
       z-index: 100;
+      border-bottom: 2px solid #00ff00;
     }
     .navbar .container {
       display: flex;
@@ -37,11 +38,13 @@
       flex-wrap: wrap;
     }
     .logo {
-      font-size: 1.5rem;
+      font-size: 2rem;
       font-weight: bold;
-      color: white;
+      color: #00ff00;
       text-decoration: none;
       cursor: pointer;
+      text-shadow: 0 0 10px #00ff00;
+      letter-spacing: 2px;
     }
     .nav-links {
       display: flex;
@@ -50,34 +53,41 @@
       flex-wrap: wrap;
     }
     .nav-links a {
-      color: white;
+      color: #00ff00;
       text-decoration: none;
       cursor: pointer;
-      transition: color 0.3s;
+      transition: all 0.3s;
+      font-weight: 500;
     }
     .nav-links a:hover {
-      color: #3498db;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff;
     }
     main {
       min-height: calc(100vh - 200px);
       padding: 3rem 0;
+      color: #ddd;
     }
     h1 {
-      color: #2c3e50;
+      color: #00ff00;
       margin-bottom: 1rem;
+      text-shadow: 0 0 10px #00ff00;
+      font-size: 2.5rem;
     }
     h2 {
-      color: #34495e;
+      color: #00ffff;
       margin-top: 1.5rem;
       margin-bottom: 1rem;
+      text-shadow: 0 0 5px #00ffff;
     }
     h3 {
-      color: #2c3e50;
+      color: #00ff00;
       margin-top: 1rem;
     }
     p {
       margin-bottom: 1rem;
-      color: #555;
+      color: #aaa;
+      line-height: 1.8;
     }
     ul {
       margin-left: 2rem;
@@ -85,6 +95,7 @@
     }
     li {
       margin-bottom: 0.5rem;
+      color: #aaa;
     }
     .form-group {
       margin-bottom: 1.5rem;
@@ -93,6 +104,7 @@
       display: block;
       margin-bottom: 0.5rem;
       font-weight: 500;
+      color: #00ff00;
     }
     input[type="text"],
     input[type="email"],
@@ -104,43 +116,51 @@
     textarea {
       width: 100%;
       padding: 0.75rem;
-      border: 1px solid #ddd;
+      border: 2px solid #00ff00;
       border-radius: 4px;
       font-size: 1rem;
       font-family: inherit;
-      transition: border-color 0.3s;
+      background-color: #1a1a2e;
+      color: #00ff00;
+      transition: all 0.3s;
     }
     input:focus,
     select:focus,
     textarea:focus {
       outline: none;
-      border-color: #3498db;
-      box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+      border-color: #00ffff;
+      box-shadow: 0 0 10px rgba(0,255,255,0.5);
+      background-color: #0f0f0f;
     }
     .btn {
       display: inline-block;
       padding: 0.75rem 1.5rem;
-      border: none;
+      border: 2px solid #00ff00;
       border-radius: 4px;
       font-size: 1rem;
       cursor: pointer;
       text-decoration: none;
-      transition: background-color 0.3s;
+      transition: all 0.3s;
       font-weight: 500;
+      background-color: transparent;
     }
     .btn-primary {
-      background-color: #3498db;
-      color: white;
+      color: #00ff00;
+      border-color: #00ff00;
     }
     .btn-primary:hover {
-      background-color: #2980b9;
+      background-color: #00ff00;
+      color: #0f0f0f;
+      box-shadow: 0 0 15px #00ff00;
     }
     .btn-secondary {
-      background-color: #95a5a6;
-      color: white;
+      color: #00ffff;
+      border-color: #00ffff;
     }
     .btn-secondary:hover {
-      background-color: #7f8c8d;
+      background-color: #00ffff;
+      color: #0f0f0f;
+      box-shadow: 0 0 15px #00ffff;
     }
     .cta-buttons {
       display: flex;
@@ -155,15 +175,17 @@
       margin-top: 2rem;
     }
     .dashboard-card {
-      background: white;
+      background: #1a1a2e;
       padding: 2rem;
       border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
+      border: 2px solid #00ff00;
+      box-shadow: 0 0 10px rgba(0,255,0,0.2);
+      transition: all 0.3s;
     }
     .dashboard-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      border-color: #00ffff;
+      box-shadow: 0 0 20px rgba(0,255,255,0.4);
     }
     .dashboard-card h2 {
       margin-top: 0;
@@ -171,50 +193,56 @@
     table {
       width: 100%;
       border-collapse: collapse;
-      background: white;
+      background: #1a1a2e;
+      border: 2px solid #00ff00;
       border-radius: 8px;
       overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 0 10px rgba(0,255,0,0.2);
       margin-top: 2rem;
     }
     thead {
-      background-color: #2c3e50;
-      color: white;
+      background-color: #0f0f0f;
+      border-bottom: 2px solid #00ff00;
     }
     th {
       padding: 1rem;
       text-align: left;
       font-weight: 600;
+      color: #00ff00;
     }
     td {
       padding: 1rem;
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid #333;
+      color: #aaa;
     }
     tbody tr:hover {
-      background-color: #f9f9f9;
+      background-color: #262641;
     }
     .action-link {
-      color: #3498db;
+      color: #00ffff;
       text-decoration: none;
       font-weight: 500;
       cursor: pointer;
     }
     .action-link:hover {
       text-decoration: underline;
+      text-shadow: 0 0 10px #00ffff;
     }
-    .status-pending {
-      background-color: #f39c12;
-      color: white;
+    .status-active {
+      background-color: #00ff00;
+      color: #0f0f0f;
       padding: 0.25rem 0.75rem;
       border-radius: 3px;
       font-size: 0.9rem;
+      font-weight: bold;
     }
     .status-open {
-      background-color: #e74c3c;
-      color: white;
+      background-color: #ff4444;
+      color: #fff;
       padding: 0.25rem 0.75rem;
       border-radius: 3px;
       font-size: 0.9rem;
+      font-weight: bold;
     }
     .controls {
       display: flex;
@@ -235,35 +263,69 @@
       margin-top: 2rem;
     }
     .staff-card {
-      background: white;
+      background: #1a1a2e;
       padding: 1.5rem;
       border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border: 2px solid #00ff00;
+      box-shadow: 0 0 10px rgba(0,255,0,0.2);
+      transition: all 0.3s;
+    }
+    .staff-card:hover {
+      border-color: #00ffff;
+      box-shadow: 0 0 15px rgba(0,255,255,0.3);
     }
     .staff-card h3 {
       margin-top: 0;
       margin-bottom: 0.5rem;
+      color: #00ff00;
     }
     .staff-card p {
       margin-bottom: 0.5rem;
       font-size: 0.95rem;
     }
+    .division-card {
+      background: #1a1a2e;
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-left: 4px solid #00ff00;
+      box-shadow: 0 0 10px rgba(0,255,0,0.2);
+      margin-bottom: 1.5rem;
+      transition: all 0.3s;
+    }
+    .division-card:hover {
+      border-left-color: #00ffff;
+      box-shadow: 0 0 15px rgba(0,255,255,0.3);
+      transform: translateX(10px);
+    }
+    .division-card h3 {
+      color: #00ff00;
+      margin-top: 0;
+    }
     footer {
-      background-color: #2c3e50;
-      color: white;
+      background-color: #1a1a2e;
+      color: #00ff00;
       text-align: center;
       padding: 2rem 0;
       margin-top: 4rem;
+      border-top: 2px solid #00ff00;
     }
     footer p {
       margin-bottom: 0;
-      color: #bdc3c7;
+      color: #00ff00;
     }
     .page {
       display: none;
     }
     .page.active {
       display: block;
+    }
+    .intro-text {
+      font-size: 1.1rem;
+      background: #1a1a2e;
+      padding: 1.5rem;
+      border-left: 4px solid #00ffff;
+      margin: 2rem 0;
+      color: #ccc;
     }
     @media (max-width: 768px) {
       .nav-links {
@@ -280,6 +342,9 @@
       .controls select,
       .controls button {
         width: 100%;
+      }
+      h1 {
+        font-size: 1.8rem;
       }
     }
   </style>
@@ -301,283 +366,323 @@
 
   <main class="container">
     <div id="home" class="page active">
-      <h1>Welcome to the International Standards Authority</h1>
-      <p>The heart of our organization dedicated to maintaining global standards.</p>
+      <h1>INTERNET SECRET AGENCY</h1>
+      <div class="intro-text">
+        <p>Welcome to ISA. The Internet Secret Agency operates covertly to protect national security, investigate cybercrime, and maintain intelligence operations across digital frontiers.</p>
+      </div>
       <div class="cta-buttons">
-        <button onclick="showPage('submit-report')" class="btn btn-primary">Submit a Report</button>
-        <button onclick="showPage('check-status')" class="btn btn-secondary">Check Report Status</button>
+        <button onclick="showPage('submit-report')" class="btn btn-primary">SUBMIT INTEL</button>
+        <button onclick="showPage('check-status')" class="btn btn-secondary">CHECK STATUS</button>
       </div>
     </div>
 
     <div id="about" class="page">
-      <h1>About ISA</h1>
-      <p>The International Standards Authority is dedicated to establishing and maintaining global standards across all industries.</p>
-      <h2>Our Mission</h2>
-      <p>To create a framework of standards that ensure quality, safety, and consistency worldwide.</p>
-      <h2>Our Vision</h2>
-      <p>A world where standards drive innovation and protect communities.</p>
+      <h1>ABOUT ISA</h1>
+      <p>The Internet Secret Agency is a covert organization dedicated to safeguarding national security through advanced intelligence gathering, cyber operations, and criminal investigations in the digital age.</p>
+      <h2>MISSION</h2>
+      <p>To identify, investigate, and neutralize threats to national security operating within cyberspace and digital networks. We operate with precision, discretion, and unwavering commitment to protecting our nation.</p>
+      <h2>VISION</h2>
+      <p>A secure digital infrastructure defended by elite intelligence operatives and cutting-edge forensic technology. We operate in the shadows to keep the light safe.</p>
     </div>
 
     <div id="divisions" class="page">
-      <h1>ISA Divisions</h1>
-      <p>Our organization is structured into specialized divisions:</p>
-      <ul>
-        <li>Quality Assurance</li>
-        <li>Safety Standards</li>
-        <li>Environmental Compliance</li>
-        <li>Technical Innovation</li>
-        <li>Industry Relations</li>
-      </ul>
+      <h1>OPERATIONAL DIVISIONS</h1>
+      <p>ISA operates through six specialized divisions, each with distinct expertise and operational focus:</p>
+      
+      <div class="division-card">
+        <h3>CRIMINAL INVESTIGATION</h3>
+        <p>Investigates high-level cybercrime, financial fraud, and digital conspiracy. Specializes in tracking threat actors, dismantling criminal networks, and building federal cases against dangerous elements operating online.</p>
+      </div>
+
+      <div class="division-card">
+        <h3>FORENSICS</h3>
+        <p>Expert analysis of digital evidence, data recovery, and forensic investigation. Utilizes advanced technology to extract intelligence from devices, networks, and encrypted communications.</p>
+      </div>
+
+      <div class="division-card">
+        <h3>INTERNAL AFFAIRS</h3>
+        <p>Maintains operational security and integrity of the agency. Investigates internal misconduct, verifies agent authenticity, and ensures compliance with classified protocols.</p>
+      </div>
+
+      <div class="division-card">
+        <h3>SPECIAL OPERATIONS</h3>
+        <p>Conducts covert field operations, cyber warfare, and direct action missions. Highly classified unit operating at the highest levels of national security.</p>
+      </div>
+
+      <div class="division-card">
+        <h3>CYBER DIVISION</h3>
+        <p>Defends critical infrastructure and conducts offensive cyber operations. Specializes in penetration testing, vulnerability assessment, and defensive countermeasures against state-sponsored threats.</p>
+      </div>
+
+      <div class="division-card">
+        <h3>INTELLIGENCE</h3>
+        <p>Gathers, analyzes, and distributes intelligence across all operations. Monitors global digital threats, predicts attack patterns, and provides actionable intelligence to division commanders.</p>
+      </div>
     </div>
 
     <div id="submit-report" class="page">
-      <h1>Submit a Report</h1>
-      <p>Report standards violations, compliance issues, or quality concerns.</p>
+      <h1>SUBMIT INTEL</h1>
+      <p>Report classified information, suspicious activity, or security threats through this secure channel.</p>
       <form class="report-form" onsubmit="handleSubmitReport(event)">
         <div class="form-group">
-          <label for="name">Full Name *</label>
-          <input type="text" id="name" name="name" required>
+          <label for="name">AGENT IDENTIFIER *</label>
+          <input type="text" id="name" name="name" placeholder="Agent Name or Badge" required>
         </div>
         <div class="form-group">
-          <label for="email">Email *</label>
+          <label for="email">SECURE EMAIL *</label>
           <input type="email" id="email" name="email" required>
         </div>
         <div class="form-group">
-          <label for="category">Category *</label>
+          <label for="category">THREAT CLASSIFICATION *</label>
           <select id="category" name="category" required>
-            <option value="">Select a category</option>
-            <option value="quality">Quality Issue</option>
-            <option value="safety">Safety Violation</option>
-            <option value="compliance">Compliance Issue</option>
-            <option value="other">Other</option>
+            <option value="">Select threat level</option>
+            <option value="criminal">Criminal Activity</option>
+            <option value="cyber">Cyber Threat</option>
+            <option value="intelligence">Intelligence Intel</option>
+            <option value="critical">Critical Threat</option>
           </select>
         </div>
         <div class="form-group">
-          <label for="description">Description *</label>
-          <textarea id="description" name="description" rows="5" required></textarea>
+          <label for="description">CLASSIFIED REPORT *</label>
+          <textarea id="description" name="description" rows="5" placeholder="Report details..." required></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Submit Report</button>
+        <button type="submit" class="btn btn-primary">SUBMIT CLASSIFIED</button>
       </form>
     </div>
 
     <div id="check-status" class="page">
-      <h1>Check Report Status</h1>
-      <p>Enter your report ID to check the current status of your submission.</p>
+      <h1>CHECK OPERATION STATUS</h1>
+      <p>Enter your operation code to check investigation status.</p>
       <form class="status-form" onsubmit="handleCheckStatus(event)">
         <div class="form-group">
-          <label for="reportId">Report ID *</label>
-          <input type="text" id="reportId" name="reportId" placeholder="e.g., RPT-2026-001" required>
+          <label for="reportId">OPERATION CODE *</label>
+          <input type="text" id="reportId" name="reportId" placeholder="e.g., OP-2026-001" required>
         </div>
-        <button type="submit" class="btn btn-primary">Check Status</button>
+        <button type="submit" class="btn btn-primary">CHECK STATUS</button>
       </form>
     </div>
 
     <div id="login" class="page">
-      <h1>Staff Login</h1>
+      <h1>AGENT AUTHENTICATION</h1>
       <form class="login-form" onsubmit="handleLogin(event)">
         <div class="form-group">
-          <label for="login-email">Email *</label>
-          <input type="email" id="login-email" name="email" required>
+          <label for="login-email">AGENT ID *</label>
+          <input type="email" id="login-email" name="email" placeholder="agent@isa-classified.net" required>
         </div>
         <div class="form-group">
-          <label for="password">Password *</label>
-          <input type="password" id="password" name="password" required>
+          <label for="password">SECURITY CLEARANCE *</label>
+          <input type="password" id="password" name="password" placeholder="••••••••" required>
         </div>
-        <button type="submit" class="btn btn-primary">Login</button>
+        <button type="submit" class="btn btn-primary">AUTHENTICATE</button>
       </form>
     </div>
 
     <div id="dashboard" class="page">
-      <h1>Staff Dashboard</h1>
-      <p>Welcome to the ISA Staff Portal. Select an option below:</p>
+      <h1>OPERATIONS CENTER</h1>
+      <p>Access classified operational tools and intelligence dashboards.</p>
       <div class="dashboard-grid">
         <div class="dashboard-card">
-          <h2>Reports</h2>
-          <p>Manage incoming reports and submissions</p>
-          <button onclick="showPage('reports')" class="btn btn-secondary">View Reports</button>
+          <h2>ACTIVE REPORTS</h2>
+          <p>Manage incoming intel submissions and case files</p>
+          <button onclick="showPage('reports')" class="btn btn-secondary">ACCESS</button>
         </div>
         <div class="dashboard-card">
-          <h2>Cases</h2>
-          <p>Track and manage investigation cases</p>
-          <button onclick="showPage('cases')" class="btn btn-secondary">View Cases</button>
+          <h2>INVESTIGATIONS</h2>
+          <p>Track ongoing criminal and security investigations</p>
+          <button onclick="showPage('cases')" class="btn btn-secondary">ACCESS</button>
         </div>
         <div class="dashboard-card">
-          <h2>Evidence</h2>
-          <p>Manage case evidence and documentation</p>
-          <button onclick="showPage('evidence')" class="btn btn-secondary">View Evidence</button>
+          <h2>EVIDENCE VAULT</h2>
+          <p>Classified evidence storage and chain of custody</p>
+          <button onclick="showPage('evidence')" class="btn btn-secondary">ACCESS</button>
         </div>
         <div class="dashboard-card">
-          <h2>Staff Directory</h2>
-          <p>View team members and contact info</p>
-          <button onclick="showPage('staff')" class="btn btn-secondary">View Staff</button>
+          <h2>AGENT ROSTER</h2>
+          <p>View cleared operatives and division assignments</p>
+          <button onclick="showPage('staff')" class="btn btn-secondary">ACCESS</button>
         </div>
         <div class="dashboard-card">
-          <h2>Audit Logs</h2>
-          <p>Review system activity and changes</p>
-          <button onclick="showPage('audit-logs')" class="btn btn-secondary">View Logs</button>
+          <h2>ACTIVITY LOG</h2>
+          <p>Classified operational activity and audit trail</p>
+          <button onclick="showPage('audit-logs')" class="btn btn-secondary">ACCESS</button>
         </div>
       </div>
     </div>
 
     <div id="reports" class="page">
-      <h1>Reports Management</h1>
-      <p>View and manage all submitted reports.</p>
+      <h1>ACTIVE REPORTS</h1>
+      <p>All incoming intel submissions classified by status.</p>
       <div class="controls">
-        <input type="search" id="search" placeholder="Search reports...">
+        <input type="search" id="search" placeholder="Search case files...">
         <select id="filter">
           <option value="">All Status</option>
-          <option value="pending">Pending</option>
-          <option value="in-review">In Review</option>
-          <option value="resolved">Resolved</option>
+          <option value="pending">Pending Analysis</option>
+          <option value="active">Active Investigation</option>
+          <option value="closed">Closed</option>
         </select>
       </div>
       <table class="reports-table">
         <thead>
           <tr>
-            <th>Report ID</th>
-            <th>Submitter</th>
-            <th>Category</th>
-            <th>Status</th>
-            <th>Date</th>
-            <th>Actions</th>
+            <th>CASE ID</th>
+            <th>AGENT</th>
+            <th>THREAT TYPE</th>
+            <th>STATUS</th>
+            <th>DATE</th>
+            <th>ACTION</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>RPT-2026-001</td>
-            <td>John Doe</td>
-            <td>Quality Issue</td>
-            <td><span class="status-pending">Pending</span></td>
+            <td>OP-2026-001</td>
+            <td>Agent Smith</td>
+            <td>Cyber Threat</td>
+            <td><span class="status-active">ACTIVE</span></td>
             <td>2026-08-28</td>
-            <td><a class="action-link">View</a></td>
+            <td><a class="action-link">VIEW</a></td>
           </tr>
         </tbody>
       </table>
     </div>
 
     <div id="cases" class="page">
-      <h1>Cases Management</h1>
-      <p>Track and manage investigation cases.</p>
+      <h1>INVESTIGATION CASES</h1>
+      <p>Classified investigation tracking and case management.</p>
       <div class="controls">
-        <button class="btn btn-primary">Create New Case</button>
-        <input type="search" id="search" placeholder="Search cases...">
+        <button class="btn btn-primary">OPEN NEW CASE</button>
+        <input type="search" id="search" placeholder="Search investigations...">
       </div>
       <table class="cases-table">
         <thead>
           <tr>
-            <th>Case ID</th>
-            <th>Description</th>
-            <th>Status</th>
-            <th>Assigned To</th>
-            <th>Created</th>
-            <th>Actions</th>
+            <th>CASE CODE</th>
+            <th>SUBJECT</th>
+            <th>STATUS</th>
+            <th>LEAD AGENT</th>
+            <th>PRIORITY</th>
+            <th>ACTION</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>CASE-2026-001</td>
-            <td>Quality Standards Violation</td>
-            <td><span class="status-open">Open</span></td>
-            <td>Jane Smith</td>
-            <td>2026-08-25</td>
-            <td><a class="action-link">View</a></td>
+            <td>CLASSIFIED</td>
+            <td><span class="status-open">OPEN</span></td>
+            <td>Agent Johnson</td>
+            <td>CRITICAL</td>
+            <td><a class="action-link">VIEW</a></td>
           </tr>
         </tbody>
       </table>
     </div>
 
     <div id="evidence" class="page">
-      <h1>Evidence Management</h1>
-      <p>Store and manage case evidence and documentation.</p>
+      <h1>EVIDENCE VAULT</h1>
+      <p>Secure classified evidence storage and management system.</p>
       <div class="controls">
-        <input type="text" id="caseFilter" placeholder="Filter by case ID...">
+        <input type="text" id="caseFilter" placeholder="Search by case code...">
         <input type="file" id="uploadEvidence" multiple>
-        <button class="btn btn-primary">Upload Evidence</button>
+        <button class="btn btn-primary">UPLOAD EVIDENCE</button>
       </div>
       <table class="evidence-table">
         <thead>
           <tr>
-            <th>Evidence ID</th>
-            <th>Case ID</th>
-            <th>File Name</th>
-            <th>Type</th>
-            <th>Uploaded</th>
-            <th>Actions</th>
+            <th>EVIDENCE ID</th>
+            <th>CASE CODE</th>
+            <th>DESCRIPTION</th>
+            <th>TYPE</th>
+            <th>LOGGED</th>
+            <th>ACTION</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>EV-2026-001</td>
             <td>CASE-2026-001</td>
-            <td>Inspection_Report.pdf</td>
-            <td>PDF</td>
+            <td>[CLASSIFIED]</td>
+            <td>DIGITAL</td>
             <td>2026-08-26</td>
-            <td><a class="action-link">Download</a></td>
+            <td><a class="action-link">ACCESS</a></td>
           </tr>
         </tbody>
       </table>
     </div>
 
     <div id="staff" class="page">
-      <h1>Staff Directory</h1>
-      <p>View all team members and contact information.</p>
+      <h1>CLEARED PERSONNEL ROSTER</h1>
+      <p>Active ISA agents and operational staff with current clearance.</p>
       <div class="controls">
-        <input type="search" id="search" placeholder="Search staff...">
+        <input type="search" id="search" placeholder="Search agents...">
         <select id="departmentFilter">
-          <option value="">All Departments</option>
-          <option value="quality">Quality Assurance</option>
-          <option value="safety">Safety Standards</option>
-          <option value="compliance">Environmental Compliance</option>
-          <option value="innovation">Technical Innovation</option>
-          <option value="relations">Industry Relations</option>
+          <option value="">All Divisions</option>
+          <option value="criminal">Criminal Investigation</option>
+          <option value="forensics">Forensics</option>
+          <option value="internal">Internal Affairs</option>
+          <option value="special">Special Operations</option>
+          <option value="cyber">Cyber Division</option>
+          <option value="intel">Intelligence</option>
         </select>
       </div>
       <div class="staff-grid">
         <div class="staff-card">
-          <h3>Jane Smith</h3>
-          <p>Director of Quality Assurance</p>
-          <p><strong>Email:</strong> jane.smith@isa.org</p>
+          <h3>Agent Sarah Williams</h3>
+          <p>Director, Criminal Investigation Division</p>
+          <p><strong>CLEARANCE:</strong> TOP SECRET/SCI</p>
+          <p><strong>CONTACT:</strong> [ENCRYPTED]</p>
         </div>
         <div class="staff-card">
-          <h3>Robert Johnson</h3>
-          <p>Safety Standards Manager</p>
-          <p><strong>Email:</strong> r.johnson@isa.org</p>
+          <h3>Agent Marcus Chen</h3>
+          <p>Chief, Cyber Division Operations</p>
+          <p><strong>CLEARANCE:</strong> TOP SECRET/SCI</p>
+          <p><strong>CONTACT:</strong> [ENCRYPTED]</p>
+        </div>
+        <div class="staff-card">
+          <h3>Agent Victoria Stone</h3>
+          <p>Lead, Forensics Analysis</p>
+          <p><strong>CLEARANCE:</strong> SECRET</p>
+          <p><strong>CONTACT:</strong> [ENCRYPTED]</p>
+        </div>
+        <div class="staff-card">
+          <h3>Agent James Morris</h3>
+          <p>Special Operations Commander</p>
+          <p><strong>CLEARANCE:</strong> TOP SECRET/SCI/TK</p>
+          <p><strong>CONTACT:</strong> [ENCRYPTED]</p>
         </div>
       </div>
     </div>
 
     <div id="audit-logs" class="page">
-      <h1>Audit Logs</h1>
-      <p>Review system activity and changes.</p>
+      <h1>OPERATIONAL AUDIT LOG</h1>
+      <p>Classified activity log and system access tracking.</p>
       <div class="controls">
-        <input type="search" id="search" placeholder="Search logs...">
+        <input type="search" id="search" placeholder="Search activity...">
         <input type="date" id="dateFilter">
         <select id="actionFilter">
-          <option value="">All Actions</option>
-          <option value="create">Create</option>
-          <option value="update">Update</option>
-          <option value="delete">Delete</option>
-          <option value="view">View</option>
-          <option value="login">Login</option>
+          <option value="">All Activities</option>
+          <option value="access">System Access</option>
+          <option value="modify">File Modified</option>
+          <option value="delete">File Deleted</option>
+          <option value="login">Agent Login</option>
+          <option value="alert">Security Alert</option>
         </select>
       </div>
       <table class="audit-table">
         <thead>
           <tr>
-            <th>Timestamp</th>
-            <th>User</th>
-            <th>Action</th>
-            <th>Resource</th>
-            <th>Details</th>
+            <th>TIMESTAMP</th>
+            <th>AGENT</th>
+            <th>ACTIVITY</th>
+            <th>TARGET</th>
+            <th>STATUS</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>2026-08-28 10:30 AM</td>
-            <td>jane.smith@isa.org</td>
-            <td>CREATE</td>
-            <td>Report</td>
-            <td>Created new report RPT-2026-001</td>
+            <td>2026-08-28 14:32:45 UTC</td>
+            <td>Agent Williams</td>
+            <td>FILE ACCESS</td>
+            <td>CASE-2026-001</td>
+            <td><span class="status-active">APPROVED</span></td>
           </tr>
         </tbody>
       </table>
@@ -585,7 +690,7 @@
   </main>
 
   <footer>
-    <p>&copy; 2026 International Standards Authority. All rights reserved.</p>
+    <p>CLASSIFIED - INTERNET SECRET AGENCY | AUTHORIZED PERSONNEL ONLY</p>
   </footer>
 
   <script>
@@ -601,19 +706,22 @@
 
     function handleSubmitReport(event) {
       event.preventDefault();
-      alert('Report submitted successfully! Your report ID is: RPT-' + new Date().getFullYear() + '-' + Math.floor(Math.random() * 1000));
+      const reportId = 'OP-' + new Date().getFullYear() + '-' + Math.floor(Math.random() * 10000).toString().padStart(4, '0');
+      alert('✓ CLASSIFIED INTEL SUBMITTED\n\nOperation Code: ' + reportId + '\n\nStatus: PROCESSING\n\nKeep this code for status updates.');
       document.querySelector('.report-form').reset();
     }
 
     function handleCheckStatus(event) {
       event.preventDefault();
       const reportId = document.getElementById('reportId').value;
-      alert('Status for ' + reportId + ': PENDING REVIEW');
+      const statuses = ['UNDER INVESTIGATION', 'ACTIVE LEAD', 'THREAT NEUTRALIZED', 'PENDING CLEARANCE', 'SURVEILLANCE ACTIVE'];
+      const randomStatus = statuses[Math.floor(Math.random() * statuses.length)];
+      alert('OPERATION: ' + reportId + '\n\nSTATUS: ' + randomStatus + '\n\nLast Update: ' + new Date().toLocaleString() + '\n\n[More details available to cleared personnel only]');
     }
 
     function handleLogin(event) {
       event.preventDefault();
-      alert('Login successful! Redirecting to dashboard...');
+      alert('✓ AUTHENTICATION SUCCESSFUL\n\nWelcome back, Agent.\n\nRedirecting to Operations Center...');
       showPage('dashboard');
     }
   </script>
